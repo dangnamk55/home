@@ -30,9 +30,6 @@ class index extends Controller
         return view('index.post');
     }
 
-    public function quan_tri(){
-       return view('admin.quantri')
-    }
 
 
 }

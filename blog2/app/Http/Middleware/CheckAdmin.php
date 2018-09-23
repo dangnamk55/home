@@ -19,7 +19,7 @@ class CheckAdmin
             if(session('is_admin'))
                 return $next($request);
             else
-                return redirect('/tai-khoan');
+                return redirect('/');
         }
         else
         return redirect('/login');

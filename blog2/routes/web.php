@@ -45,6 +45,7 @@ Route::group(
         'middleware' => [ 'adminLogin' ]
     ],
     function () {
-        Route::get('/quan-tri', 'index@quan_tri')->name('quantri');
+        Route::get('/quan-tri', 'CateController@getList')->name('quantri');
+        Route::get('/delete/{id}', 'CateController@getDelete')->name('admin.getDelete');
     }
 );
