@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\posts;
+use App\Posts;
 
 class CateController extends Controller
 {
     public function getList(){
-        $data = posts::select('id','name')->orderBy('id','DESC')->get()->toarray();
+        $data = Posts::select('id','name')->orderBy('id','DESC')->get()->toarray();// tên model sao ko viết hoa lại viết thường thế này
         return view('admin.quantri', compact('data'));
     }
 

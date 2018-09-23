@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
 
-class posts extends Model
+class Posts extends Model // tu đay đã ko viết hoa rồi
 {
     use Notifiable;
 

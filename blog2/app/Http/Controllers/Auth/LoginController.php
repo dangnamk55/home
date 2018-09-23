@@ -116,7 +116,7 @@ class LoginController extends Controller
                         flash('sai password')->error();
                     } else {
                         $user = User::where('name', $request->user)->first();
-                        session(['user' => $user]);
+                        session(['user' => $user]); // co thay set gia tri session is_admin đâu nhỉ
                         flash('login success!')->success();
                         return redirect('/');
                     }
