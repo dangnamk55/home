@@ -13,6 +13,14 @@ class CateController extends Controller
     }
 
     public function getDelete($id){
-        echo $id;
+        $post = Posts::find($id);
+        $post->delete();
+        flash('xóa thành công!')->success();
+        return redirect()->route('quantri');
     }
+
+    public function getEdit($id){
+
+    }
+
 }

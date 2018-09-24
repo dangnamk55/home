@@ -47,6 +47,7 @@ Route::group(
     function () {
         Route::get('/quan-tri', 'CateController@getList')->name('quantri');
         Route::get('/delete/{id}', 'CateController@getDelete')->name('admin.getDelete');
-        Route::get('/edit/{id}', 'CateController@getEdit')->name('admin.getEdit');
+        Route::get('/edit/{id}', 'CatCeontroller@getEdit')->name('admin.getEdit');
+        Route::get('/add', 'postController@getAdd')->name('admin.add');
     }
 );
