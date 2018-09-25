@@ -21,6 +21,7 @@ class CateController extends Controller
 
     public function getEdit($id){
 
+        return view('post.edit');
     }
 
 }

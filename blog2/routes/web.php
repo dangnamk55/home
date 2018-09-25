@@ -49,5 +49,6 @@ Route::group(
         Route::get('/delete/{id}', 'CateController@getDelete')->name('admin.getDelete');
         Route::get('/edit/{id}', 'CatCeontroller@getEdit')->name('admin.getEdit');
         Route::get('/add', 'postController@getAdd')->name('admin.add');
+        Route::post('/addpost', 'postController@addPost')->name('addPost');
     }
 );
