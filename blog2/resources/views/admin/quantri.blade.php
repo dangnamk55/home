@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
-                <div class="table table-striped table-bordered">
+                <table class="table table-striped table-bordered"> <!-- thật vl Nam ko dùng table =)) -->
                     <thead>
                         <tr align="center">
                             <th>ID</th>
@@ -33,7 +33,7 @@
                     @endforeach
                     </tbody>
 
-                </div>
+                </table>
             </div>
         </div>
     </div>
