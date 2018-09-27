@@ -26,10 +26,5 @@ class index extends Controller
         return view('auth.register');
     }
 
-    public function postview(){
-        return view('index.post');
-    }
-
-
 
 }

@@ -18,10 +18,10 @@ class CreatePostsTable extends Migration
             $table->string('name');
             $table->string('alias')->unique();
             $table->text('content');
-            $table->text('featured_image')->nullable();
+            $table->text('image')->nullable();
             $table->text('meta_data')->nullable();
+            $table->text('description');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

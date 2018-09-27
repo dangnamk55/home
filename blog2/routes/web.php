@@ -19,7 +19,7 @@ Route::get('/information', 'index@information')->name('information');
 
 Route::get('/contact', 'index@contact')->name('contact');
 
-Route::get('/post', 'index@postview')->name('post');
+Route::get('/post', 'postController@postview')->name('post');
 
 Route::post('/contact/send', ['uses' => 'FrontController@addFeedback', 'as' => 'feedback']);
 
@@ -30,6 +30,8 @@ Route::get('/register', 'index@register')->name('register');
 Route::post('/dang-nhap', 'Auth\LoginController@postLogin')->name('dangnhap');
 
 route::get('/hash', 'hashpass@pwhash');
+
+route::get('/post/{id}', 'postController@postShow')->name('postshow');
 
 
 
@@ -47,8 +49,17 @@ Route::group(
     function () {
         Route::get('/quan-tri', 'CateController@getList')->name('quantri');
         Route::get('/delete/{id}', 'CateController@getDelete')->name('admin.getDelete');
-        Route::get('/edit/{id}', 'CatCeontroller@getEdit')->name('admin.getEdit');
         Route::get('/add', 'postController@getAdd')->name('admin.add');
-        Route::post('/addpost', 'postController@addPost')->name('addPost');
+        Route::resource( 'post', 'PostController', [
+            'except' => [
+                'show','index'
+            ],
+            'names'  => [
+                'create' => 'admin.add',
+                'store'  => 'addPost',
+                'edit'   => 'admin.getEdit',
+                'update' => 'admin.editSubmit'
+            ]
+        ] );
     }
 );
