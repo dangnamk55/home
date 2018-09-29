@@ -41,6 +41,7 @@
                                 <li>JavaScript</li>
                                 <li>Database</li>
                                 <li>PHP</li>
+                                <li>laravel</li>
                             </ul>
                         </div>
                     </div>

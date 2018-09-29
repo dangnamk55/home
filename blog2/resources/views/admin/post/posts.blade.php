@@ -4,7 +4,7 @@
 
 @section('main')
 
-    <section class="page-top-section set-bg" data-setbg="img/page-top-bg.jpg">
+    <section class="page-top-section set-bg" data-setbg="{{asset('img/page-top-bg.jpg')}}">
         <div class="container">
             <h2>post</h2>
         </div>
@@ -17,7 +17,7 @@
                 <div class="col-lg-6 about-text">
                     <h2>{!! $item["name"] !!}</h2>
                     <p>{{$item['description']}}</p>
-                    <div {{route('postshow',['id'=>$item['id']])}} class="site-btn">Read more</div>
+                    <a href="{{route('postshow',['id'=>$item['alias']])}}" class="site-btn">Read more</a>
                 </div>
                 <div class="col-lg-6">
                     <img src="{{asset('storage/'.$item['image'])}}">

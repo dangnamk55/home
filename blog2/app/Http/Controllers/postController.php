@@ -12,8 +12,9 @@ class postController extends Controller
         return view('admin.post.posts',compact('data'));
     }
 
-    public function postShow(){
-
+    public function postShow($id){
+        $data = Posts::where('alias', $id)->first()->toarray();
+        return view('admin.post.detail', compact('data'));
     }
 
 
