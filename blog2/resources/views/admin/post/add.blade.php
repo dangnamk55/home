@@ -27,6 +27,9 @@
                     @endphp
 
                     @include('admin.layouts.form_header', ['action' => $formAction, 'model' => $item ?? null, 'hasFile' => true])
+                    @if($isEdit)
+                        @method('PUT')
+                    @endif
                     <div>
                         <label  for="name">Your post name</label><br>
                         {!! Form::text('name', null, ['class' => 'input-text', 'placeholder'=>"Your post name"]) !!}

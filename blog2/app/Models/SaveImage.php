@@ -28,17 +28,19 @@ trait SaveImage
 
 	public function storeImageOnUpdating ()
 	{
-		// move image to game folder
-        if ( ! empty( $this->image ) && strpos($this->image, 'public/tmp/') !== false) {
+		// move image to game folder, doan nay t check ca anh co nam trong thu muc tmp ko
+        if ( ! empty( $this->image )) {
             $slug  = new Slugify();
             $normalizeModelName = $slug->slugify(class_basename(get_class($this)));
-
+// con ko chay vao day =)) sao nos hien 2 hidden la sao vay?
             try {
                 $imageArr  = explode( '.', $this->image );
                 $extension = end( $imageArr );
-                $oldImagePath = 'public/' . $this->getOriginal('image');
+                $oldImagePath = $this->getOriginal('image');
                 $imagePath = $normalizeModelName . '/' . $this->alias . '-' . time() . '.' . $extension;
                 // delete old image if it existed
+                //dd($oldImagePath);
+                //dd(Storage::disk('local')->exists('public/' . $oldImagePath));
                 if(Storage::disk('local')->exists($oldImagePath)) {
                     Storage::delete($oldImagePath);
                 }

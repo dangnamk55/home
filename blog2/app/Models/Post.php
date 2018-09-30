@@ -29,7 +29,6 @@ class Post extends BaseModel
 
 		});
 		self::updating( function ( $item )  {
-			$item->aliasOnUpdate();
 			$item->storeImageOnUpdating();
 		});
 	}

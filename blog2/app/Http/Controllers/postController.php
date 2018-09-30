@@ -65,8 +65,9 @@ class postController extends Controller
         $data = $request->all();
 
         if ( $data['image'] !== $item->image ) {
-            $data['image'] = $request->file('image')->store('public/sponsor');
-            $data['image'] = str_replace( '/storage/', '/public/', $data['image'] );
+            $data['image'] = $request->file('image')->store('public/post');
+            //dd($data['image']);
+            $data['image'] = str_replace( 'public/', '', $data['image'] );
         } else {
             $data['image'] = $item->image;
         }
