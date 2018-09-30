@@ -48,4 +48,33 @@ class postController extends Controller
         return response()->redirectToRoute( 'quantri' );
     }
 
+    public function edit(Post $post){
+        $item  = $post;
+        $currentRoute = Route::currentRouteName();
+        return view( 'admin.post.add', compact(  'item','currentRoute' ));
+    }
+
+    public function update(Request $request, Post $post){
+
+        $this->validate( $request, [
+            'name'        => 'required',
+            'content'     => 'required',
+            'description' => 'required',
+        ] );
+        $item = $post;
+        $data = $request->all();
+
+        if ( $data['image'] !== $item->image ) {
+            $data['image'] = $request->file('image')->store('public/sponsor');
+            $data['image'] = str_replace( '/storage/', '/public/', $data['image'] );
+        } else {
+            $data['image'] = $item->image;
+        }
+
+        $item->fill( $data );
+        $item->save();
+        flash( __( 'message.save_success' ), 'success' );
+
+        return response()->redirectTo( route( 'quantri', [ 'id' => $post->id ] ) );
+    }
 }

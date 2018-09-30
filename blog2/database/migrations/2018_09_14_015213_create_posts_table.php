@@ -21,6 +21,7 @@ class CreatePostsTable extends Migration
             $table->text('image')->nullable();
             $table->text('meta_data')->nullable();
             $table->text('description');
+            $table->date('published_date');
             $table->timestamps();
         });
     }

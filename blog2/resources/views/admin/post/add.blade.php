@@ -6,7 +6,11 @@
 
 @section('script')
     <script type="text/javascript">
-        CKEDITOR.replace( 'editor1' );
+        CKEDITOR.replace( 'editor1', {
+            filebrowserBrowseUrl : '/responsive_filemanager/filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
+            filebrowserUploadUrl : '/responsive_filemanager/filemanager/dialog.php?type=2&editor=ckeditor&fldr=',
+            filebrowserImageBrowseUrl : '/responsive_filemanager/filemanager/dialog.php?type=1&editor=ckeditor&fldr='
+        } );
     </script>
 @endsection
 
