@@ -18,13 +18,13 @@
                 <div class="contact-form-warp">
 
                     @php
-                        $isEdit = (explode('.',getCurrentRoute())[1] == 'getEdit');
+                        $isEdit = (explode('.', $currentRoute)[1] == 'getEdit');
                         $formAction = $isEdit ? route('admin.editSubmit', ['id' => $item->id]) : route('addPost');
                     @endphp
 
                     @include('admin.layouts.form_header', ['action' => $formAction, 'model' => $item ?? null])
                     <div>
-                        <label  for="name">Your post name</label>
+                        <label  for="name">Your post name</label><br>
                         {!! Form::text('name', null, ['class' => 'input-text', 'placeholder'=>"Your post name"]) !!}
                     </div>
                     <div>
@@ -32,16 +32,16 @@
                             <img src="{{ asset('storage/' . $item->image) }}" alt="{{$item->name}}"
                                  class="img img-responsive">
                         @endif
-                        <label for="image" class="hidden">hình đại diện</label>
+                        <label for="image" class="hidden">hình đại diện</label><br>
                         {!! Form::file('image', ['accept' => 'image/*']) !!}
                     </div>
                     <div>
-                        <label  for="description">tóm tắt</label>
+                        <label  for="description">tóm tắt</label><br>
                         {!! Form::textarea('description', null, ['class' => 'tarea', 'placeholder'=>"description", 'rows'=>'3']) !!}
                     </div>
 
                     <div>
-                        <label for="editor1">Content</label>
+                        <label for="editor1">Content</label><br>
                         {!! Form::textarea('content', null, ['class' => 'tarea ckeditor', 'rows'=>'5', 'id'=>'editor1']) !!}
 
                     </div>

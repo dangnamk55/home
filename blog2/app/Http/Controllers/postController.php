@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Posts;
+use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Container\Container;
+
 
 class postController extends Controller
 {
@@ -18,12 +22,28 @@ class postController extends Controller
     }
 
 
-    public function creat(){
-        return view('admin.post.add');
+    public function create(){
+        $currentRoute = Route::currentRouteName();
+        return view('admin.post.add', compact('currentRoute'));
     }
 
-    public function store(){
+    public function store(Request $request){
+        $this->validate( $request, [
+            'name'        => 'required',
+            'content'     => 'required',
+            'image'       => 'required',
+            'description' => 'required',
+        ] );
 
+        $item          = new Post();
+        $data          = $request->all();
+        $data['image'] = str_replace( '/storage/', '/public/', $data['image'] );
+
+        $item->fill( $data );
+        $item->save();
+        flash( __( 'message.save_success' ), 'success' );
+
+        return response()->redirectToRoute( 'quantri' );
     }
 
 }
