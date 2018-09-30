@@ -37,6 +37,8 @@ class postController extends Controller
 
         $item          = new Post();
         $data          = $request->all();
+        //dd($data);
+        $data['image'] = $request->file('image')->store('public/sponsor');
         $data['image'] = str_replace( '/storage/', '/public/', $data['image'] );
 
         $item->fill( $data );
