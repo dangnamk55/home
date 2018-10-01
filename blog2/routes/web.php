@@ -50,7 +50,7 @@ Route::group(
         Route::get('/quan-tri', 'CateController@getList')->name('quantri');
         Route::get('/delete/{id}', 'CateController@getDelete')->name('admin.getDelete');
         Route::get('/add', 'postController@getAdd')->name('admin.add');
-        Route::resource( 'post', 'PostController', [
+        Route::resource( 'post', 'postController', [
             'except' => [
                 'show','index'
             ],
