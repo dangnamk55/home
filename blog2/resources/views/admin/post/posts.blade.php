@@ -20,7 +20,7 @@
                     <a href="{{route('postshow',['id'=>$item['alias']])}}" class="site-btn">Read more</a>
                 </div>
                 <div class="col-lg-6">
-                    <img src="{{asset('storage/'.$item['image'])}}">
+                    <img src="{{asset('storage/'.$item['image'])}}" width="300" height="200">
                 </div>
             </div>
         </div>
