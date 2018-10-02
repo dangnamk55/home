@@ -1,6 +1,6 @@
 @extends('head')
 
-@section('tittle', 'add post')
+@section('title', 'add post')
 
 @section('main')
 

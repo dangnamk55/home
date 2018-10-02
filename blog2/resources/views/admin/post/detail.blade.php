@@ -1,6 +1,6 @@
 @extends('head')
 
-@section('tittle', $data['name'])
+@section('title', $data['name'])
 
 @section('main')
 

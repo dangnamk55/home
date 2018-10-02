@@ -1,6 +1,6 @@
 @extends('head')
 
-@section('tittle', 'quản trị')
+@section('title', 'quản trị')
 
 @section('main')
 
